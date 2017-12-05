@@ -11,30 +11,29 @@ public class TestEightBall {
     @Before
     public void before() {
         magicEightBall = new MagicEightBall();
+        magicEightBall.addAnswer( "Seems Likely");
+        magicEightBall.addAnswer( "Not likely");
+        magicEightBall.addAnswer( "Maybe");
+        magicEightBall.addAnswer( "Answer Unclear");
+        magicEightBall.addAnswer( "Ask Again");
+        magicEightBall.addAnswer( "Run For The Hills");
     }
 
     @Test
     public void canAddAnswer() {
-        magicEightBall.addAnswer("Seems Likely");
-        assertEquals(1, magicEightBall.getAnswerCount());
+        assertEquals(6, magicEightBall.getAnswerCount());
     }
 
     @Test
     public void returnAnyAnswer(){
-        magicEightBall.addAnswer( "Seems Likely");
-        magicEightBall.addAnswer( "Not likely");
-        magicEightBall.addAnswer( "Maybe");
         System.out.println(magicEightBall.getRandomAnswer());
         assertNotNull(magicEightBall.getRandomAnswer());
     }
 
     @Test
     public void canRemoveAnswer(){
-        magicEightBall.addAnswer( "Seems Likely");
-        magicEightBall.addAnswer( "Not likely");
-        magicEightBall.addAnswer( "Maybe");
         magicEightBall.removeAnswer("Maybe");
-        assertEquals(2, magicEightBall.getAnswerCount());
+        assertEquals(5, magicEightBall.getAnswerCount());
     }
 
 }
